@@ -1,16 +1,7 @@
-# projects
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h4>Task 5</h4>
+<h5>Contains a decomposed application. Lifting state up and state change were used.</h5>
+<h3>Image</h3>
+<div style="display: ">
+  <img src="photo_2024-03-29_21-38-40](https://github.com/anastasiiavelma/Task5-EmpatSchool/assets/103375322/0f1e341f-46ec-4d1f-86cd-0b853b828254" style="height: 400px; width: 200px;">
+  <img src="photo_2024-03-29_21-38-59](https://github.com/anastasiiavelma/Task5-EmpatSchool/assets/103375322/29604407-3d1d-4dc7-aab9-ea3e3bb50546" style="height: 400px; width: 200px;">
+</div>
