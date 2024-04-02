@@ -29,7 +29,7 @@ class ItemsList extends StatelessWidget {
                       width: double.infinity,
                       child: OctoImage(
                         fit: BoxFit.fill,
-                        image: NetworkImage(
+                        image: AssetImage(
                           item.imageUrl!,
                         ),
                       ),

@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Item> items = [];
+ final List<Item> items = [];
 
   void addToCart(Item item) {
     setState(() {

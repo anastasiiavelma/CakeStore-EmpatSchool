@@ -1,9 +1,9 @@
 class Item {
-  late final int id;
+  final int id;
   final String name;
   final String description;
   final int price;
-  late String? imageUrl;
+  String? imageUrl;
 
   Item({
     required this.id,

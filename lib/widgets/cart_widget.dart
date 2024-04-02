@@ -61,7 +61,7 @@ class CartWidget extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(50),
                             child: OctoImage(
-                              image: NetworkImage(
+                              image: AssetImage(
                                 item.imageUrl!,
                               ),
                             ),
