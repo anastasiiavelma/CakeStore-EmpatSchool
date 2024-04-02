@@ -3,7 +3,7 @@ class Item {
   final String name;
   final String description;
   final int price;
-  String? imageUrl;
+  final String? imageUrl;
 
   Item({
     required this.id,
