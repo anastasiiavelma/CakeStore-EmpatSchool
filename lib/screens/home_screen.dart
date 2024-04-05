@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:projects/models/item.dart';
+import 'package:projects/models/cart.dart';
+import 'package:projects/screens/shopping_cart_screen.dart';
 import 'package:projects/utlis/constants.dart';
-import 'package:projects/widgets/cart_widget.dart';
-import 'package:projects/widgets/items_list_widget.dart';
+import 'package:projects/widgets/cards/greeting_card_widget.dart';
+import 'package:projects/widgets/icons/cart_icon_widget.dart';
+import 'package:projects/widgets/slivers/silver_bar_widget.dart';
+import 'package:projects/widgets/list/items_list_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,18 +16,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
- final List<Item> items = [];
+  late Cart _cart;
 
-  void addToCart(Item item) {
-    setState(() {
-      items.add(item);
-    });
-  }
-
-  void removeFromCart(Item item) {
-    setState(() {
-      items.remove(item);
-    });
+  @override
+  void initState() {
+    super.initState();
+    _cart = Provider.of<Cart>(context, listen: false);
   }
 
   @override
@@ -31,35 +29,37 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            title: Text(
-              'Cake-store',
-              style: TextStyle(color: kBackgroundColor, fontSize: 30.0),
-            ),
-            centerTitle: true,
-            backgroundColor: kButtonsColor,
+          const CustomSliverAppBar(),
+          const SliverToBoxAdapter(
+            child: GreetingCard(),
           ),
           SliverPadding(
             padding: largePadding,
             sliver: ItemsList(
-              onAddToCart: addToCart,
+              onAddToCart: _cart.addToCart,
             ),
           ),
         ],
       ),
-      floatingActionButton: _shoppingCart(context),
+      floatingActionButton: Stack(
+        alignment: Alignment.topRight,
+        children: [
+          _shoppingCartIcon(context),
+          const CounterItemsIcon(),
+        ],
+      ),
     );
   }
 
-  Widget _shoppingCart(context) {
+  Widget _shoppingCartIcon(context) {
     return FloatingActionButton(
       onPressed: () => (
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => CartWidget(
-              items: items,
-              onRemoveItem: removeFromCart,
+              items: _cart.itemsInCart,
+              onRemoveItem: _cart.removeFromCart,
             ),
           ),
         ),

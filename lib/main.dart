@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:projects/models/cart.dart';
 import 'package:projects/screens/home_screen.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: true,
-      tools: const [
-        ...DevicePreview.defaultTools,
-      ],
-      builder: (context) => const MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => Cart(),
+      child: const MyApp(),
     ),
   );
 }
