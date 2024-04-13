@@ -1,4 +1,4 @@
-<h1>Task 5,6?7</h1>
+<h1>Task 5,6,7</h1>
 <h4>Task5:</h4> <p>Contains a decomposed application. Lifting state up and state change were used.</p>
 <h4>Task6:</h4> <p>Contains ChangeNotifier and non-trivial tree widgets. Added total price, remove all from cart, counter items icon. </p>
 <h4>Task7:</h4> <p>Contains Providers, Cubits, htttp requests, Shared Preferences, jsonplaceholder. Added dark/light theme</p>
