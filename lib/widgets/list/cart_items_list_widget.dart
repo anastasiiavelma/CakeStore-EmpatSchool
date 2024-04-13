@@ -25,9 +25,10 @@ class CartItemsList extends StatelessWidget {
             onRemoveItem(item);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                backgroundColor: kAccentColor,
+                backgroundColor: Theme.of(context).colorScheme.primary,
                 content: Text('You successfully ${item.name} delete from cart!',
-                    style: TextStyle(color: kTextColor)),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary)),
                 duration: const Duration(seconds: 1),
               ),
             );
@@ -36,10 +37,11 @@ class CartItemsList extends StatelessWidget {
             padding: smallPadding,
             child: Container(
               decoration: BoxDecoration(
-                  color: kBackgroundColor,
+                  color: Theme.of(context).colorScheme.background,
                   borderRadius: BorderRadius.circular(20)),
               alignment: Alignment.centerRight,
-              child: Icon(Icons.delete, color: kButtonsColor),
+              child: Icon(Icons.delete,
+                  color: Theme.of(context).colorScheme.background),
             ),
           ),
           child: SizedBox(

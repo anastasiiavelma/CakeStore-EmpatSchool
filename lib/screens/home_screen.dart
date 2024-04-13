@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projects/models/cart.dart';
+import 'package:projects/providers/cart_provider.dart';
 import 'package:projects/screens/shopping_cart_screen.dart';
 import 'package:projects/utlis/constants.dart';
 import 'package:projects/widgets/cards/greeting_card_widget.dart';
@@ -16,12 +16,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Cart _cart;
+  late CartProvider _cart;
 
   @override
   void initState() {
     super.initState();
-    _cart = Provider.of<Cart>(context, listen: false);
+    _cart = Provider.of<CartProvider>(context, listen: false);
+    Provider.of<CartProvider>(context, listen: false).loadData();
   }
 
   @override
@@ -57,21 +58,21 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CartWidget(
+            builder: (context) => CartScreen(
               items: _cart.itemsInCart,
               onRemoveItem: _cart.removeFromCart,
             ),
           ),
         ),
       ),
-      backgroundColor: kButtonsColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       shape: const CircleBorder(),
       child: SizedBox(
         width: 60.0,
         height: 60.0,
         child: Icon(
           Icons.shopping_cart,
-          color: kBackgroundColor,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

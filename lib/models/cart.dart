@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:projects/models/item.dart';
 
-class Cart extends ChangeNotifier {
+class Cart {
   final List<Item> _itemsInCart = [];
 
   List<Item> get itemsInCart => _itemsInCart;
@@ -14,20 +13,5 @@ class Cart extends ChangeNotifier {
       total += item.price;
     }
     return total;
-  }
-
-  void addToCart(Item item) {
-    _itemsInCart.add(item);
-    notifyListeners();
-  }
-
-  void removeFromCart(Item item) {
-    _itemsInCart.remove(item);
-    notifyListeners();
-  }
-
-  void removeAll() {
-    _itemsInCart.clear();
-    notifyListeners();
   }
 }

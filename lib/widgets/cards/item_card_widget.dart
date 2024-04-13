@@ -37,7 +37,7 @@ class ItemCard extends StatelessWidget {
                   children: [
                     Text(item.name,
                         style: TextStyle(
-                            color: kTextColor,
+                            color: Theme.of(context).colorScheme.secondary,
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold)),
                     Text('${item.price} UAH'),

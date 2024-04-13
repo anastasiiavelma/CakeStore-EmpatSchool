@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projects/models/item.dart';
-import 'package:projects/utlis/constants.dart';
 
 class AddToCartButton extends StatelessWidget {
   final Item item;
@@ -15,9 +14,18 @@ class AddToCartButton extends StatelessWidget {
     return IconButton(
       onPressed: () {
         onAddToCart(item);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            content: Text('You successfully ${item.name} added to cart!',
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary)),
+            duration: const Duration(seconds: 1),
+          ),
+        );
       },
       icon: const Icon(Icons.card_giftcard),
-      color: kButtonsColor,
+      color: Theme.of(context).colorScheme.primary,
     );
   }
 }

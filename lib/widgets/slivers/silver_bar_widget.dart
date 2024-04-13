@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projects/utlis/constants.dart';
+import 'package:projects/widgets/buttons/theme_widget_button.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({super.key});
@@ -9,10 +9,12 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       title: Text(
         'Cake-store',
-        style: TextStyle(color: kBackgroundColor, fontSize: 30.0),
+        style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary, fontSize: 30.0),
       ),
+      leading: const ThemeButton(),
       centerTitle: true,
-      backgroundColor: kButtonsColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
     );
   }
 }

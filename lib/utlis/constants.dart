@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 // Text size
 const mediumTextSize = 18.0;
 const smallTextSize = 12.0;
 
-// Colors
-Color kBackgroundColor = HexColor("##F7F7FF"); //ghost white
-Color kButtonsColor = HexColor("#92BFB1"); // green
-Color kTextColor = HexColor("#070600"); //smoky black
-Color kAccentColor = HexColor("#FAC8CD"); // pink
+// Color
+Color kBackgroundColorLight = const Color(0xffF8C8DC);
+Color kBackgroundColorDark = const Color(0xff673147);
+Color kTextColorLight = const Color(0xffF1F5FB);
+Color kTextColorDark = const Color(0xff070600);
+Color kAccentColorDark = const Color(0xff9F2B68);
+Color kAccentColorLight = const Color(0xffFFB6C1);
 
 const smallSizedBoxWidth = SizedBox(width: 10.0);
 const smallSizedBoxHeight = SizedBox(height: 10.0);

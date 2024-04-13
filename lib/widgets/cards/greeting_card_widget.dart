@@ -7,8 +7,8 @@ class GreetingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      surfaceTintColor: kButtonsColor,
-      shadowColor: kButtonsColor,
+      surfaceTintColor: Theme.of(context).colorScheme.background,
+      shadowColor: Theme.of(context).colorScheme.shadow,
       elevation: 10.0,
       child: Padding(
         padding: smallPadding,
@@ -21,7 +21,7 @@ class GreetingCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: kTextColor,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
             ),
@@ -50,13 +50,13 @@ class InformationAboutStore extends StatelessWidget {
             'We offer a wide range of products to meet your needs. Whether you\'re looking for groceries, household items, electronics, or fashion, we have it all!',
             style: TextStyle(
               fontSize: 16.0,
-              color: kTextColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),
         Icon(
           Icons.cake_outlined,
-          color: kButtonsColor,
+          color: Theme.of(context).colorScheme.primary,
           size: 40.0,
         ),
       ],
@@ -75,7 +75,7 @@ class LocationStore extends StatelessWidget {
       children: [
         Icon(
           Icons.location_on,
-          color: kTextColor,
+          color: Theme.of(context).colorScheme.primary,
         ),
         const SizedBox(
           width: 3.0,
@@ -84,7 +84,7 @@ class LocationStore extends StatelessWidget {
           'Kyiv, Ukraine',
           style: TextStyle(
             fontSize: 16.0,
-            color: kTextColor,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
       ],

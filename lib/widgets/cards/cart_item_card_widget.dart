@@ -23,12 +23,13 @@ class CartItemCard extends StatelessWidget {
         padding: smallPadding,
         child: Container(
           decoration: BoxDecoration(
-            color: kBackgroundColor,
+            color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(20),
           ),
           alignment: Alignment.centerRight,
           padding: largePadding,
-          child: Icon(Icons.delete, color: kButtonsColor),
+          child: Icon(Icons.delete,
+              color: Theme.of(context).colorScheme.background),
         ),
       ),
       child: Padding(
@@ -72,10 +73,10 @@ class CartItemCard extends StatelessWidget {
   void snackBarRemove(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: kAccentColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         content: Text(
           'You successfully removed ${item.name} from cart!',
-          style: TextStyle(color: kTextColor),
+          style: TextStyle(color: Theme.of(context).colorScheme.secondary),
         ),
         duration: const Duration(seconds: 1),
       ),
