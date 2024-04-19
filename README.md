@@ -1,7 +1,15 @@
-<h1>Task 5,6,7</h1>
-<h4>Task5:</h4> <p>Contains a decomposed application. Lifting state up and state change were used.</p>
-<h4>Task6:</h4> <p>Contains ChangeNotifier and non-trivial tree widgets. Added total price, remove all from cart, counter items icon. </p>
+<h1>Task 5,6,7,8</h1>
+<h4>Task8:</h4> <p>Added shimmer, nested navigation. </p>
 <h4>Task7:</h4> <p>Contains Providers, Cubits, htttp requests, Shared Preferences, jsonplaceholder. Added dark/light theme</p>
+<h4>Task6:</h4> <p>Contains ChangeNotifier and non-trivial tree widgets. Added total price, remove all from cart, counter items icon. </p>
+<h4>Task5:</h4> <p>Contains a decomposed application. Lifting state up and state change were used.</p>
+
+
+
+<h3>Image: Task8</h3>
+<div style="display: ">
+  <img src="https://github.com/anastasiiavelma/Projects-CakeStore-EmpatSchool/assets/103375322/821019f2-465a-4663-89fc-7bf41c14ea83" style="height: 450px; width: 230px;">
+</div>
 
 <h3>Image: Task7</h3>
 <div style="display: ">
