@@ -18,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late CartProvider _cart;
 
+  int? _cartTotalPrice;
+
   @override
   void initState() {
     super.initState();
@@ -31,8 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: CustomScrollView(
         slivers: <Widget>[
           const CustomSliverAppBar(),
-          const SliverToBoxAdapter(
-            child: GreetingCard(),
+          SliverToBoxAdapter(
+            child: GreetingCard(
+              cartTotalPrice: _cartTotalPrice,
+            ),
           ),
           SliverPadding(
             padding: largePadding,
@@ -54,8 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _shoppingCartIcon(context) {
     return FloatingActionButton(
-      onPressed: () => (
-        Navigator.push(
+      onPressed: () async {
+        final result = await Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => CartScreen(
@@ -63,8 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
               onRemoveItem: _cart.removeFromCart,
             ),
           ),
-        ),
-      ),
+        );
+        if (result != null) {
+          setState(() {
+            _cartTotalPrice = result;
+          });
+        }
+      },
       backgroundColor: Theme.of(context).colorScheme.background,
       shape: const CircleBorder(),
       child: SizedBox(

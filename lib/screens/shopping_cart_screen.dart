@@ -15,11 +15,28 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<CartProvider>(builder: (context, cart, child) {
+      final cartTotalPrice = cart.totalPrice;
       return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
+          leading: Row(
+            children: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context, cartTotalPrice);
+                  },
+                  icon: Icon(Icons.arrow_back,
+                      color: Theme.of(context).colorScheme.secondary)),
+            ],
+          ),
           backgroundColor: Theme.of(context).colorScheme.background,
           actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/posts');
+                },
+                icon: Icon(Icons.list,
+                    color: Theme.of(context).colorScheme.secondary)),
             IconButton(
                 onPressed: () {
                   cart.removeAll();
@@ -56,7 +73,7 @@ class CartScreen extends StatelessWidget {
                           fontSize: 17.0),
                     ),
                     TextSpan(
-                      text: '${cart.totalPrice} ',
+                      text: '$cartTotalPrice ',
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.secondary,
                           fontWeight: FontWeight.bold,

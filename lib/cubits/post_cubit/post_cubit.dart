@@ -9,6 +9,7 @@ class PostCubit extends Cubit<PostState> {
 
   Future<void> getPosts() async {
     emit(PostLoading());
+    await Future.delayed(const Duration(seconds: 3));
     try {
       final response = await http
           .get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));

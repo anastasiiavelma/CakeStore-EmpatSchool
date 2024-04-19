@@ -4,11 +4,12 @@ class Post {
   late String title;
   late String body;
 
-  Post(
-      {required this.userId,
-      required this.id,
-      required this.title,
-      required this.body});
+  Post({
+    required this.userId,
+    required this.id,
+    required this.title,
+    required this.body,
+  });
 
   Post.parseJson(Map<String, dynamic> json) {
     userId = json['userId'];

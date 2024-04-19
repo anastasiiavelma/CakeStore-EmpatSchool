@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projects/screens/home_screen.dart';
 import 'package:projects/screens/post_screen.dart';
+import 'package:projects/screens/settings_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -49,7 +50,6 @@ class _MenuScreenState extends State<MenuScreen> with TickerProviderStateMixin {
         showUnselectedLabels: false,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index;
             _tabController.animateTo(index);
           });
         },
@@ -75,8 +75,31 @@ class _MenuScreenState extends State<MenuScreen> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _tabController,
-        children: tabs,
+        children: [
+          _buildTabNavigator(Navigator.of(context), const HomeScreen()),
+          _buildTabNavigator(Navigator.of(context), const PostScreen()),
+        ],
       ),
+    );
+  }
+
+  Widget _buildTabNavigator(NavigatorState navigator, Widget page) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        if (settings.name == "/settings") {
+          return MaterialPageRoute(
+            builder: (context) => const SettingsScreen(),
+          );
+        }
+        if (settings.name == "/posts") {
+          return MaterialPageRoute(
+            builder: (context) => const PostScreen(),
+          );
+        }
+        return MaterialPageRoute(
+          builder: (context) => page,
+        );
+      },
     );
   }
 }

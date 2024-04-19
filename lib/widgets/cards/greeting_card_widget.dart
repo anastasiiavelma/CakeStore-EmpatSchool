@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projects/utlis/constants.dart';
 
 class GreetingCard extends StatelessWidget {
-  const GreetingCard({super.key});
+  final int? cartTotalPrice;
+  const GreetingCard({super.key, required this.cartTotalPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,17 @@ class GreetingCard extends StatelessWidget {
         padding: smallPadding,
         child: Column(
           children: <Widget>[
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Your total price in cart: $cartTotalPrice',
+                style: TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            ),
             Align(
               alignment: Alignment.topLeft,
               child: Text(

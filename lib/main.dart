@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projects/providers/cart_provider.dart';
 import 'package:projects/providers/dark_theme_provider.dart';
 import 'package:projects/screens/menu_screen.dart';
+import 'package:projects/screens/post_screen.dart';
+import 'package:projects/screens/settings_screen.dart';
 import 'package:projects/utlis/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:device_preview/device_preview.dart';
@@ -51,6 +53,8 @@ class _MyAppState extends State<MyApp> {
           initialRoute: '/',
           routes: {
             '/': (context) => const MenuScreen(),
+            '/posts': (context) => const PostScreen(),
+            '/settings': (context) => const SettingsScreen(),
           },
         );
       }),

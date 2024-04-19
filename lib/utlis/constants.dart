@@ -24,5 +24,7 @@ const spacer = Spacer();
 
 // Divider
 const divider = Divider(
-  thickness: 0.2,
+  thickness: 1,
+  height: 3,
+  color: Colors.white,
 );
