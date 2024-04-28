@@ -5,6 +5,7 @@
 <h4>Task6:</h4> <p>Contains ChangeNotifier and non-trivial tree widgets. Added total price, remove all from cart, counter items icon. </p>
 <h4>Task5:</h4> <p>Contains a decomposed application. Lifting state up and state change were used.</p>
 
+<h3>Image: Task9</h3>
 <div style="display: ">
   <img src="https://github.com/anastasiiavelma/CakeStore-EmpatSchool/assets/103375322/083ae4d0-d592-4fcf-8959-e103b7b27cbc" style="height: 450px; width: 230px;">
   <img src="https://github.com/anastasiiavelma/CakeStore-EmpatSchool/assets/103375322/9b8778ce-a0cd-4786-9d86-975eef03e283" style="height: 450px; width: 230px;">
