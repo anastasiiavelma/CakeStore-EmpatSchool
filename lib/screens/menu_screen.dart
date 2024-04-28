@@ -43,7 +43,7 @@ class _MenuScreenState extends State<MenuScreen> with TickerProviderStateMixin {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
         selectedItemColor: Theme.of(context).colorScheme.secondary,
         unselectedItemColor: Theme.of(context).colorScheme.secondary,
         showSelectedLabels: false,

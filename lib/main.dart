@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projects/models/item.dart';
 import 'package:projects/providers/cart_provider.dart';
 import 'package:projects/providers/dark_theme_provider.dart';
+import 'package:projects/screens/detail_item_screen.dart';
 import 'package:projects/screens/menu_screen.dart';
 import 'package:projects/screens/post_screen.dart';
 import 'package:projects/screens/settings_screen.dart';
@@ -17,6 +19,10 @@ void main() {
   );
 }
 
+// void main() {
+//   runApp(const MyApp());
+// }
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -26,6 +32,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  late final Item item;
 
   @override
   void initState() {
@@ -52,6 +59,9 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           initialRoute: '/',
           routes: {
+            '/detail-item-screen': (context) => DetailItemScreen(
+                  item: item,
+                ),
             '/': (context) => const MenuScreen(),
             '/posts': (context) => const PostScreen(),
             '/settings': (context) => const SettingsScreen(),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:projects/models/item.dart';
 import 'package:projects/utlis/constants.dart';
@@ -14,41 +16,54 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 6.0,
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: SizedBox(
-              width: double.infinity,
-              child: OctoImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                  item.imageUrl!,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: SizedBox(
+                height: 100,
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: OctoImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(item.imageUrl!),
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: smallPadding,
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(item.name,
-                        style: TextStyle(
+            Padding(
+              padding: smallPadding,
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(item.name,
+                          style: GoogleFonts.dmSerifDisplay(
                             color: Theme.of(context).colorScheme.secondary,
-                            fontSize: 15.0,
-                            fontWeight: FontWeight.bold)),
-                    Text('${item.price} UAH'),
-                  ],
-                ),
-                spacer,
-                AddToCartButton(onAddToCart: onAddToCart, item: item),
-              ],
+                            fontSize: 17.0,
+                          )),
+                      smallSizedBoxHeight,
+                      Text(
+                        '${item.price} UAH',
+                        style: GoogleFonts.dmSans(
+                          fontWeight: FontWeight.w400,
+                          color: Theme.of(context).colorScheme.secondary,
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  spacer,
+                  AddToCartButton(onAddToCart: onAddToCart, item: item),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

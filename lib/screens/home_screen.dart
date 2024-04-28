@@ -32,12 +32,28 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          const CustomSliverAppBar(),
-          SliverToBoxAdapter(
-            child: GreetingCard(
-              cartTotalPrice: _cartTotalPrice,
-            ),
+          CustomSliverAppBar(
+            title: 'Will you \nhave some \nmore cakes?',
+            clipper: CustomClipPath(),
+            actions: [
+              const CircleAvatar(
+                radius: 40,
+                backgroundImage: AssetImage('assets/images/item6.jpg'),
+              ),
+              IconButton(
+                icon: Icon(Icons.settings,
+                    color: Theme.of(context).colorScheme.secondary),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/settings');
+                },
+              ),
+            ],
           ),
+          // SliverToBoxAdapter(
+          //   child: GreetingCard(
+          //     cartTotalPrice: _cartTotalPrice,
+          //   ),
+          // ),
           SliverPadding(
             padding: largePadding,
             sliver: ItemsList(
@@ -74,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         }
       },
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.onBackground,
       shape: const CircleBorder(),
       child: SizedBox(
         width: 60.0,

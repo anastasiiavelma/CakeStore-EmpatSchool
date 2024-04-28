@@ -16,31 +16,28 @@ class GreetingCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.center,
               child: Text(
                 'Your total price in cart: $cartTotalPrice',
                 style: TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 11.0,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
             ),
             Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.center,
               child: Text(
                 'Welcome to Our Store!',
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 25.0,
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
             ),
-            smallSizedBoxHeight,
             const InformationAboutStore(),
             smallSizedBoxHeight,
-            const LocationStore(),
           ],
         ),
       ),
@@ -48,10 +45,51 @@ class GreetingCard extends StatelessWidget {
   }
 }
 
-class InformationAboutStore extends StatelessWidget {
+class InformationAboutStore extends StatefulWidget {
   const InformationAboutStore({
     super.key,
   });
+
+  @override
+  State<InformationAboutStore> createState() => _InformationAboutStoreState();
+}
+
+class _InformationAboutStoreState extends State<InformationAboutStore>
+    with SingleTickerProviderStateMixin {
+  late final Animation _animation;
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 4),
+      vsync: this,
+    )..repeat(reverse: true);
+    _animation = Tween<double>(
+      begin: 0.0,
+      end: 2.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.elasticInOut,
+      ),
+    )..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _controller.repeat();
+        } else if (status == AnimationStatus.dismissed) {
+          _controller.forward();
+        }
+      });
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +97,7 @@ class InformationAboutStore extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
+            textAlign: TextAlign.center,
             'We offer a wide range of products to meet your needs. Whether you\'re looking for groceries, household items, electronics, or fashion, we have it all!',
             style: TextStyle(
               fontSize: 16.0,
@@ -66,39 +105,18 @@ class InformationAboutStore extends StatelessWidget {
             ),
           ),
         ),
-        Icon(
-          Icons.cake_outlined,
-          color: Theme.of(context).colorScheme.primary,
-          size: 40.0,
-        ),
-      ],
-    );
-  }
-}
-
-class LocationStore extends StatelessWidget {
-  const LocationStore({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          Icons.location_on,
-          color: Theme.of(context).colorScheme.primary,
-        ),
-        const SizedBox(
-          width: 3.0,
-        ),
-        Text(
-          'Kyiv, Ukraine',
-          style: TextStyle(
-            fontSize: 16.0,
-            color: Theme.of(context).colorScheme.secondary,
-          ),
-        ),
+        AnimatedBuilder(
+            animation: _animation,
+            builder: (context, child) {
+              return Transform.scale(
+                scale: 1.0 + _animation.value * 0.2,
+                child: Image.asset(
+                  height: 150,
+                  width: 190,
+                  'assets/images/cake.png',
+                ),
+              );
+            }),
       ],
     );
   }

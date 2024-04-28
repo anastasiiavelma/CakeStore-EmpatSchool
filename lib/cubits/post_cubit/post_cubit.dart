@@ -11,8 +11,8 @@ class PostCubit extends Cubit<PostState> {
     emit(PostLoading());
     await Future.delayed(const Duration(seconds: 3));
     try {
-      final response = await http
-          .get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+      final response =
+          await http.get(Uri.parse('https://jsonplaceholder.org/posts'));
       if (response.statusCode == 200) {
         final List<dynamic> jsonData = json.decode(response.body);
         final List<Post> posts =

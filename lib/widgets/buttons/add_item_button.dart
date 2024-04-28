@@ -24,7 +24,10 @@ class AddToCartButton extends StatelessWidget {
           ),
         );
       },
-      icon: const Icon(Icons.card_giftcard),
+      icon: const Icon(
+        Icons.card_giftcard,
+        size: 33,
+      ),
       color: Theme.of(context).colorScheme.primary,
     );
   }

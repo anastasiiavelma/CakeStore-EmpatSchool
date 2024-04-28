@@ -2,20 +2,22 @@ class Post {
   late int userId;
   late int id;
   late String title;
-  late String body;
-
+  late String content;
+  late String image;
   Post({
     required this.userId,
     required this.id,
     required this.title,
-    required this.body,
+    required this.content,
+    required this.image,
   });
 
   Post.parseJson(Map<String, dynamic> json) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];
-    body = json['body'];
+    content = json['content'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -23,7 +25,8 @@ class Post {
     data['userId'] = userId;
     data['id'] = id;
     data['title'] = title;
-    data['body'] = body;
+    data['content'] = content;
+    data['image'] = image;
     return data;
   }
 }

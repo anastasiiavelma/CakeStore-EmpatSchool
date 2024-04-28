@@ -6,8 +6,12 @@ import 'package:projects/utlis/constants.dart';
 class CartItemCard extends StatelessWidget {
   final Item item;
   final Function(Item) onRemoveItem;
-
-  const CartItemCard({required this.item, required this.onRemoveItem, Key? key})
+  final Color color;
+  const CartItemCard(
+      {required this.item,
+      required this.onRemoveItem,
+      Key? key,
+      required this.color})
       : super(key: key);
 
   @override
@@ -38,6 +42,7 @@ class CartItemCard extends StatelessWidget {
           width: double.infinity,
           height: 100,
           child: Card(
+            color: color,
             elevation: 6.0,
             child: Padding(
               padding: smallPadding,

@@ -5,10 +5,10 @@ const mediumTextSize = 18.0;
 const smallTextSize = 12.0;
 
 // Color
-Color kBackgroundColorLight = const Color(0xffF8C8DC);
+Color kBackgroundColorLight = const Color(0xffF8C7CC);
 Color kBackgroundColorDark = const Color(0xff673147);
 Color kTextColorLight = const Color(0xffF1F5FB);
-Color kTextColorDark = const Color(0xff070600);
+Color kTextColorDark = const Color(0xff010101);
 Color kAccentColorDark = const Color(0xff9F2B68);
 Color kAccentColorLight = const Color(0xffFFB6C1);
 

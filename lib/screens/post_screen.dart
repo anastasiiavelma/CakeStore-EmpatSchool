@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:projects/cubits/post_cubit/post_cubit.dart';
 import 'package:projects/cubits/post_cubit/post_state.dart';
 import 'package:projects/models/post.dart';
 import 'package:projects/screens/detail_post_screen.dart';
 import 'package:projects/utlis/constants.dart';
 import 'package:projects/widgets/list/comments_list_widget.dart';
+import 'package:projects/widgets/slivers/silver_bar_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
 class PostScreen extends StatelessWidget {
@@ -14,36 +16,43 @@ class PostScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.background,
-        title: const Text('Posts'),
-      ),
       body: BlocProvider(
         create: (context) => PostCubit()..getPosts(),
         child: BlocBuilder<PostCubit, PostState>(
           builder: (context, state) {
             if (state is PostLoaded) {
-              return ListView.builder(
-                itemCount: state.posts.length,
-                itemBuilder: (context, index) {
-                  final post = state.posts[index];
-                  return Padding(
-                    padding: smallerPadding,
-                    child: GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => PostDetailScreen(
-                            postTitle: post.title,
-                            postText: post.body,
+              return CustomScrollView(
+                slivers: [
+                  CustomSliverAppBar(
+                      title: 'Something \ninteresting',
+                      clipper: CustomClipPath()),
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final post = state.posts[index];
+                        return Padding(
+                          padding: smallerPadding,
+                          child: GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PostDetailScreen(
+                                  postTitle: post.title,
+                                  postText: post.content,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: smallerPadding,
+                              child: CardPostWidget(post: post),
+                            ),
                           ),
-                        ),
-                      ),
-                      child: CardPostWidget(post: post),
+                        );
+                      },
+                      childCount: state.posts.length,
                     ),
-                  );
-                },
+                  ),
+                ],
               );
             } else if (state is PostLoading) {
               return _buildLoadingList(5);
@@ -95,11 +104,15 @@ class CardPostWidget extends StatelessWidget {
           ListTile(
             title: Text(
               post.title,
-              style: const TextStyle(fontSize: 40.0),
+              style: GoogleFonts.dmSerifDisplay(fontSize: 40.0),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            subtitle: Text(post.body, overflow: TextOverflow.ellipsis),
+            subtitle: Text(post.content,
+                style: GoogleFonts.montserrat(
+                    fontSize: 15.0, fontWeight: FontWeight.normal),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis),
           ),
           TextButton(
             onPressed: () {

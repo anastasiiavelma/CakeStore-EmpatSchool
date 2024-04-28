@@ -1,4 +1,5 @@
 {
-  "cSpell.words": ["giftcard", "hexcolor", "комментарии"],
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "cSpell.words": ["giftcard", "hexcolor", "vsync", "комментарии"],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "cmake.sourceDirectory": "D:/empat-school/projects/linux"
 }

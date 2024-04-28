@@ -5,8 +5,10 @@ import './constants.dart';
 ThemeData basicTheme(bool isDarkTheme, BuildContext context) => ThemeData(
     colorScheme: isDarkTheme
         ? ColorScheme.dark(
-            //background green
+            //background
             background: kBackgroundColorDark,
+            onBackground: kTextColorDark,
+
             // text
             secondary: kTextColorLight,
             // shadow for card
@@ -14,8 +16,10 @@ ThemeData basicTheme(bool isDarkTheme, BuildContext context) => ThemeData(
             primary: kAccentColorDark,
           )
         : ColorScheme.light(
-            //background green
+            //background
             background: kBackgroundColorLight,
+            onBackground: kTextColorLight,
+
             // text
             secondary: kTextColorDark,
             // shadow for card
