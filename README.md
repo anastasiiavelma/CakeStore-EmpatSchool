@@ -1,10 +1,14 @@
-<h1>Task 5,6,7,8</h1>
+<h1>Task 5,6,7,8,9</h1>
+<h4>Task9:</h4><p>Re-design app. Added item and cart animation, filtration, clipPath (custom appBar and Google-fonts package).  </p>
 <h4>Task8:</h4> <p>Added shimmer, nested navigation. </p>
 <h4>Task7:</h4> <p>Contains Providers, Cubits, htttp requests, Shared Preferences, jsonplaceholder. Added dark/light theme</p>
 <h4>Task6:</h4> <p>Contains ChangeNotifier and non-trivial tree widgets. Added total price, remove all from cart, counter items icon. </p>
 <h4>Task5:</h4> <p>Contains a decomposed application. Lifting state up and state change were used.</p>
 
-
+<div style="display: ">
+  <img src="https://github.com/anastasiiavelma/CakeStore-EmpatSchool/assets/103375322/083ae4d0-d592-4fcf-8959-e103b7b27cbc" style="height: 450px; width: 230px;">
+  <img src="https://github.com/anastasiiavelma/CakeStore-EmpatSchool/assets/103375322/9b8778ce-a0cd-4786-9d86-975eef03e283" style="height: 450px; width: 230px;">
+</div>
 
 <h3>Image: Task8</h3>
 <div style="display: ">
