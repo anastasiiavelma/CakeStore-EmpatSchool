@@ -5,7 +5,7 @@
 <h2>key features: 😊</h2>
 <ul>
     <li>Integration of diverse learning tools.</li>
-    <li>Utilization of gamification to boost motivation.</li>
+    <li>Using gamification to increase motivation.</li>
     <li>Support for effective learning.</li>
 </ul>
 
